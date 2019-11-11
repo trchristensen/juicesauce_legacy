@@ -20,6 +20,13 @@ class CreateRecipesTable extends Migration
             $table->string('name');
             $table->text('description');
 
+             $table->unsignedBigInteger('owner_id');
+
+            $table->foreign('owner_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+
 
         });
     }

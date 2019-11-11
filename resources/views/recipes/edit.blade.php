@@ -14,24 +14,13 @@
                         </div>
                     @endif
 
-                    @include('recipes.form',[
-                        'buttonText' => 'Update Recipe',
-                        'formMethod' => 'PATCH',
-                        'formPath'   => $recipe->path()
-                    ])
-
-                   
-
-                    <h3 class="medium">Flavors</h3>
-                    @if($recipe->flavors->count() !== 0)
-                        @foreach($recipe->flavors as $flavor)
-                            <span class="label label-default" style="background:"><a class="text-white" href="/flavors/{{ $flavor->id }}">{{$flavor->name}}</a></span>
-                        @endforeach
-                    @else
-
-                        <div>There are currently no flavors being used by this recipe.</div>
+                {{-- {{ dd($recipe->flavors->pluck('pivot')) }} --}}
                     
-                    @endif
+                   <updaterecipe recipename="{{ $recipe->name }}" recipedescription="{{ $recipe->description }}" recipeflavors='@json($recipe->flavors)' endpoint="/recipes/{{ $recipe->id }}">
+                   </updaterecipe>
+                 
+
+                  
                    
                 </div>
             </div>

@@ -10,6 +10,9 @@ window.Vue = require('vue');
 
 window.axios = require('axios');
 
+window.moment = require('moment');
+import moment from 'moment';
+
 window.axios.defaults.headers.common = {
     // 'X-CSRF-TOKEN': window.App.csrfToken,
     'X-Requested-With': 'XMLHttpRequest'
@@ -29,7 +32,10 @@ window.axios.defaults.headers.common = {
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('autocomplete', require('./components/Autocomplete.vue').default);
+Vue.component('createrecipe', require('./components/CreateRecipe.vue').default);
+Vue.component('updaterecipe', require('./components/UpdateRecipe.vue').default); 
+
+Vue.component('recipeindex', require('./components/RecipeIndex.vue').default); 
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

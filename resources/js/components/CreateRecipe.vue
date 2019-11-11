@@ -11,35 +11,36 @@
             <textarea class="form-control" id="description" name="description" v-model="recipe.description" rows="3" required></textarea>
         </div>
 
-        <div class="form-group">
+        <multiselect v-model="value" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="true" placeholder="Select flavors" label="name" track-by="name" :preselect-first="true">
+            <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
+      </multiselect>
+
+        <div class="form-group mt-4">
           <div v-for="(flavor, index) of value" v-bind:key="index" :id="flavor.id">
-            <div class="form-row mt-4">
-              <div class="col-md-4 mb-1">
-                  <label for="flavor">{{flavor.name}} - {{flavor.id}}</label>
-                  <input name="flavor" type="number" class="form-control flavor" :id="'flavor-' + flavor.id" placeholder="Enter flavor %" v-model="flavor.flavor_perc" required>
-                  <a class="button is-medium is-primary" @click="removeItem(index)">X</a>
+            <div class="form-row" style="border-bottom:1px solid #efefef">
+              <div class="col-md-12 mt-2 mb-4 d-flex justify-content-between align-center">
+                  <div class="ml-0 mr-auto">
+                    <label for="flavor">{{flavor.name}}</label>
+                    <input name="flavor" type="number" class="form-control flavor" :id="'flavor-' + flavor.id" placeholder="Enter flavor %" v-model="flavor.flavor_perc" required>
+                  </div>
+                  <a class="button is-medium is-primary ml-auto mr-0" style="cursor:pointer;" @click="removeTag(index)">X</a>
               </div>
             </div>
           </div>
         </div>
-
-      <multiselect v-model="value" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="true" placeholder="Select flavors" label="name" track-by="name" :preselect-first="true">
-            <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
-      </multiselect>
-
         
 
-        <button type="submit" @click="createRecipe" class="btn btn-primary">Submit</button>
+        <button type="submit" @click="createRecipe" class="btn btn-primary mt-2">Submit</button>
 
 
 
-  <pre class="language-json"><code>{{ value  }}</code></pre>
+  <!-- <pre class="language-json"><code>{{ value  }}</code></pre> -->
 
 
     
 
 
-  <pre class="language-json">Flavor Array: <code>{{ flavorArray }}</code></pre>
+  <!-- <pre class="language-json">Flavor Array: <code>{{ flavorArray }}</code></pre> -->
 
   
 
@@ -57,6 +58,8 @@ export default {
     Multiselect
   },
   props: [
+
+    'endpoint'
       
   ],
  
@@ -64,7 +67,6 @@ export default {
     return {
         value: [],
         options: [],
-        endpoint: '/recipes',
         recipe: {
           name: '',
           description: ''
@@ -89,6 +91,11 @@ export default {
       this.value.push(tag)
     },
 
+    removeTag(tag) {
+        this.options.pop(tag)
+        this.value.pop(tag)
+    },
+
     createRecipe() {
 
       axios.post(this.endpoint, {
@@ -99,13 +106,18 @@ export default {
       .then((response) => {
           // this.recipe.name = '';
           // this.recipe.description = '';
-        console.log(response)
+        console.log(response);
+
+        window.location = response.request.responseURL;
+
         })
         .catch(error => {
           console.log(error)
         });
 
-    }
+    },
+
+  
 
   },
   computed: {

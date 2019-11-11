@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    <autocomplete></autocomplete>
+                    Current User is {{$current_user->id}}
+
+                    <createRecipe endpoint="/recipes"></createRecipe>
 
                     {{-- @include('recipes.form',[
                         'recipe'     => new App\Recipe,

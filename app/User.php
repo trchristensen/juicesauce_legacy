@@ -37,5 +37,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function recipes()
+	{
+		return $this->hasMany(App\Recipe::class, 'owner_id')->latest('updated_at');
+	}
+
   
 }

@@ -19,7 +19,9 @@ class RecipesController extends Controller
      */
     public function create()
     {
-        return view('recipes.create');
+        $current_user = auth()->user();
+
+        return view('recipes.create', compact('current_user'));
     }
 
 
@@ -28,15 +30,19 @@ class RecipesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Recipe $recipe) {
+    public function index() {
 
         $recipeList = Recipe::latest()->paginate(20);
 
         return view('recipes.index', compact('recipeList'));
     }
 
+   public function results() {
 
-   
+       $list =  Recipe::latest()->paginate(20);
+
+       return compact('list');
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -47,29 +53,18 @@ class RecipesController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request);
+        $owner = auth()->id();
 
         $recipe = Recipe::create([
             'name'  => request('name'),
-            'description'   => request('description')
+            'description'   => request('description'),
+            'owner_id'      => $owner,
         ]);
 
         $flavors = request('flavors');
 
-        $recipe->flavors()->detach();
-
         $recipe->flavors()->attach($flavors);
-
         
-
-        // foreach ($flavors as $flavor) {
-        //     $recipe->flavors()->attach([
-        //         $flavor->id => ['flavor_perc' => $flavor->flavor_perc]
-        //     ]);
-        // }
-
-        
-
 
         return redirect($recipe->path());
 
@@ -115,18 +110,11 @@ class RecipesController extends Controller
             'description'   => request('description')
         ]);
 
-        foreach (request('flavors') as $flavor) {
-            $recipe->flavors()->sync([
-                $flavor->id => ['flavor_perc' => $flavor->flavor_perc]
-            ]);
-        }
+        $flavors = request('flavors');
 
-        // $recipe->flavors()->sync([
-        //     1 => ['flavor_perc' => 4],
-        //     2 =>['flavor_perc' => 3],
-        //     3 =>['flavor_perc' =>3],
-        //     ]);
+        $recipe->flavors()->detach();
 
+        $recipe->flavors()->attach($flavors);
 
         return redirect($recipe->path());
 

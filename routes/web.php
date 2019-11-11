@@ -25,14 +25,26 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Recipes
 Route::get('/recipes', 'RecipesController@index');
 
+Route::get('/api/recipes', function(){
+    
+    return App\Recipe::latest()->paginate(20);
+});
+
 // Flavors
 Route::get('/flavors', 'FlavorsController@index');
 Route::get('/flavors/{flavor}', 'FlavorsController@show');
 
 
 Route::get('/api/flavors', function(){
-    
 
-    return App\Flavor::all();
+    $flavors = App\Flavor::all();
+
+
+    foreach($flavors as $key => $flavor) {
+        $flavors[$key]['pivot'] = ["flavor_perc" => 0];  
+    } 
+    
+    return $flavors;
+  
 
 });

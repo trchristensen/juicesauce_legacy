@@ -11,7 +11,7 @@ class Recipe extends Model
 
 
     public function flavors() {
-        return $this->belongsToMany('App\Flavor');
+        return $this->belongsToMany('App\Flavor')->withPivot('flavor_perc');
     }
 
     public function path() {
@@ -30,6 +30,10 @@ class Recipe extends Model
         //     'flavor_perc'   =>  request('flavor_perc')
         // ]);
 
+    }
+
+    public function owner() {
+        return $this->belongsTo(User::class);
     }
 
  
