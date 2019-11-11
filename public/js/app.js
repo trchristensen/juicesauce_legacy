@@ -2084,6 +2084,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2131,6 +2152,17 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
+    flavorTotal: function flavorTotal() {
+      var data = this.value;
+      var sum = [];
+      Object.keys(data).forEach(function (key) {
+        var num = parseInt(data[key].pivot.flavor_perc);
+        sum.push(num);
+      });
+      return sum.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+    },
     flavorArray: function flavorArray() {
       var newArray = this.value.map(function (item) {
         return {
@@ -6641,7 +6673,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nfieldset[disabled] .multiselect{pointer-events:none}.multiselect__spinner{position:absolute;right:1px;top:1px;width:48px;height:35px;background:#fff;display:block}.multiselect__spinner:after,.multiselect__spinner:before{position:absolute;content:\"\";top:50%;left:50%;margin:-8px 0 0 -8px;width:16px;height:16px;border-radius:100%;border-color:#41b883 transparent transparent;border-style:solid;border-width:2px;box-shadow:0 0 0 1px transparent}.multiselect__spinner:before{-webkit-animation:a 2.4s cubic-bezier(.41,.26,.2,.62);animation:a 2.4s cubic-bezier(.41,.26,.2,.62);-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}.multiselect__spinner:after{-webkit-animation:a 2.4s cubic-bezier(.51,.09,.21,.8);animation:a 2.4s cubic-bezier(.51,.09,.21,.8);-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}.multiselect__loading-enter-active,.multiselect__loading-leave-active{transition:opacity .4s ease-in-out;opacity:1}.multiselect__loading-enter,.multiselect__loading-leave-active{opacity:0}.multiselect,.multiselect__input,.multiselect__single{font-family:inherit;font-size:16px;touch-action:manipulation}.multiselect{box-sizing:content-box;display:block;position:relative;width:100%;min-height:40px;text-align:left;color:#35495e}.multiselect *{box-sizing:border-box}.multiselect:focus{outline:none}.multiselect--disabled{opacity:.6}.multiselect--active{z-index:1}.multiselect--active:not(.multiselect--above) .multiselect__current,.multiselect--active:not(.multiselect--above) .multiselect__input,.multiselect--active:not(.multiselect--above) .multiselect__tags{border-bottom-left-radius:0;border-bottom-right-radius:0}.multiselect--active .multiselect__select{transform:rotate(180deg)}.multiselect--above.multiselect--active .multiselect__current,.multiselect--above.multiselect--active .multiselect__input,.multiselect--above.multiselect--active .multiselect__tags{border-top-left-radius:0;border-top-right-radius:0}.multiselect__input,.multiselect__single{position:relative;display:inline-block;min-height:20px;line-height:20px;border:none;border-radius:5px;background:#fff;padding:0 0 0 5px;width:100%;transition:border .1s ease;box-sizing:border-box;margin-bottom:8px;vertical-align:top}.multiselect__input::-webkit-input-placeholder{color:#35495e}.multiselect__input:-ms-input-placeholder{color:#35495e}.multiselect__input::-moz-placeholder{color:#35495e}.multiselect__input::-ms-input-placeholder{color:#35495e}.multiselect__input::placeholder{color:#35495e}.multiselect__tag~.multiselect__input,.multiselect__tag~.multiselect__single{width:auto}.multiselect__input:hover,.multiselect__single:hover{border-color:#cfcfcf}.multiselect__input:focus,.multiselect__single:focus{border-color:#a8a8a8;outline:none}.multiselect__single{padding-left:5px;margin-bottom:8px}.multiselect__tags-wrap{display:inline}.multiselect__tags{min-height:40px;display:block;padding:8px 40px 0 8px;border-radius:5px;border:1px solid #e8e8e8;background:#fff;font-size:14px}.multiselect__tag{position:relative;display:inline-block;padding:4px 26px 4px 10px;border-radius:5px;margin-right:10px;color:#fff;line-height:1;background:#41b883;margin-bottom:5px;white-space:nowrap;overflow:hidden;max-width:100%;text-overflow:ellipsis}.multiselect__tag-icon{cursor:pointer;margin-left:7px;position:absolute;right:0;top:0;bottom:0;font-weight:700;font-style:normal;width:22px;text-align:center;line-height:22px;transition:all .2s ease;border-radius:5px}.multiselect__tag-icon:after{content:\"\\D7\";color:#266d4d;font-size:14px}.multiselect__tag-icon:focus,.multiselect__tag-icon:hover{background:#369a6e}.multiselect__tag-icon:focus:after,.multiselect__tag-icon:hover:after{color:#fff}.multiselect__current{min-height:40px;overflow:hidden;padding:8px 12px 0;padding-right:30px;white-space:nowrap;border-radius:5px;border:1px solid #e8e8e8}.multiselect__current,.multiselect__select{line-height:16px;box-sizing:border-box;display:block;margin:0;text-decoration:none;cursor:pointer}.multiselect__select{position:absolute;width:40px;height:38px;right:1px;top:1px;padding:4px 8px;text-align:center;transition:transform .2s ease}.multiselect__select:before{position:relative;right:0;top:65%;color:#999;margin-top:4px;border-style:solid;border-width:5px 5px 0;border-color:#999 transparent transparent;content:\"\"}.multiselect__placeholder{color:#adadad;display:inline-block;margin-bottom:10px;padding-top:2px}.multiselect--active .multiselect__placeholder{display:none}.multiselect__content-wrapper{position:absolute;display:block;background:#fff;width:100%;max-height:240px;overflow:auto;border:1px solid #e8e8e8;border-top:none;border-bottom-left-radius:5px;border-bottom-right-radius:5px;z-index:1;-webkit-overflow-scrolling:touch}.multiselect__content{list-style:none;display:inline-block;padding:0;margin:0;min-width:100%;vertical-align:top}.multiselect--above .multiselect__content-wrapper{bottom:100%;border-bottom-left-radius:0;border-bottom-right-radius:0;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom:none;border-top:1px solid #e8e8e8}.multiselect__content::webkit-scrollbar{display:none}.multiselect__element{display:block}.multiselect__option{display:block;padding:12px;min-height:40px;line-height:16px;text-decoration:none;text-transform:none;vertical-align:middle;position:relative;cursor:pointer;white-space:nowrap}.multiselect__option:after{top:0;right:0;position:absolute;line-height:40px;padding-right:12px;padding-left:20px;font-size:13px}.multiselect__option--highlight{background:#41b883;outline:none;color:#fff}.multiselect__option--highlight:after{content:attr(data-select);background:#41b883;color:#fff}.multiselect__option--selected{background:#f3f3f3;color:#35495e;font-weight:700}.multiselect__option--selected:after{content:attr(data-selected);color:silver}.multiselect__option--selected.multiselect__option--highlight{background:#ff6a6a;color:#fff}.multiselect__option--selected.multiselect__option--highlight:after{background:#ff6a6a;content:attr(data-deselect);color:#fff}.multiselect--disabled{background:#ededed;pointer-events:none}.multiselect--disabled .multiselect__current,.multiselect--disabled .multiselect__select,.multiselect__option--disabled{background:#ededed;color:#a6a6a6}.multiselect__option--disabled{cursor:text;pointer-events:none}.multiselect__option--group{background:#ededed;color:#35495e}.multiselect__option--group.multiselect__option--highlight{background:#35495e;color:#fff}.multiselect__option--group.multiselect__option--highlight:after{background:#35495e}.multiselect__option--disabled.multiselect__option--highlight{background:#dedede}.multiselect__option--group-selected.multiselect__option--highlight{background:#ff6a6a;color:#fff}.multiselect__option--group-selected.multiselect__option--highlight:after{background:#ff6a6a;content:attr(data-deselect);color:#fff}.multiselect-enter-active,.multiselect-leave-active{transition:all .15s ease}.multiselect-enter,.multiselect-leave-active{opacity:0}.multiselect__strong{margin-bottom:8px;line-height:20px;display:inline-block;vertical-align:top}[dir=rtl] .multiselect{text-align:right}[dir=rtl] .multiselect__select{right:auto;left:1px}[dir=rtl] .multiselect__tags{padding:8px 8px 0 40px}[dir=rtl] .multiselect__content{text-align:right}[dir=rtl] .multiselect__option:after{right:auto;left:0}[dir=rtl] .multiselect__clear{right:auto;left:12px}[dir=rtl] .multiselect__spinner{right:auto;left:1px}@-webkit-keyframes a{0%{transform:rotate(0)}to{transform:rotate(2turn)}}@keyframes a{0%{transform:rotate(0)}to{transform:rotate(2turn)}}\n", ""]);
+exports.push([module.i, "\nmeter {\n  \n  display: block;\n  margin: 0 auto;\n  \n  width: 550px;\n  height: 25px;\n  \n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n\n  border: 1px solid #ccc;\n  border-radius: 3px;\n  \n  /* Firefox */\n  background: none; /* Required to get rid of the default background prop. */\n  background-color: whiteSmoke;  \n  box-shadow: 0 5px 5px -5px #333 inset;\n}\nmeter::-webkit-meter-bar {\n  \n  background: none; /* Important to get rid of default background. */\n  background-color: whiteSmoke;\n  \n  box-shadow: 0 5px 5px -5px #333 inset;\n}\nmeter::-webkit-meter-optimum-value {\n  \n  transition: width .5s;\n  box-shadow: 0 5px 5px -5px #999 inset;\n  \n  background-image: linear-gradient( 90deg, \n                                     #8bcf69 5%, \n                                     #e6d450 5%,\n                                     #e6d450 15%,\n                                     #f28f68 15%,\n                                     #f28f68 55%,\n                                     #cf82bf 55%,\n                                     #cf82bf 95%,\n                                     #719fd1 95%,\n                                     #719fd1 100%);\n  \n  background-size: 100% 100%;\n}\nmeter::-webkit-meter-optimum-value:hover {\n  \n  background-image: linear-gradient( 90deg, \n                                     #8bcf69 20%, \n                                     #e6d450 20%,\n                                     #e6d450 40%,\n                                     #f28f68 40%,\n                                     #f28f68 60%,\n                                     #cf82bf 60%,\n                                     #cf82bf 80%,\n                                     #719fd1 80%,\n                                     #719fd1 100%);\n  \n  transition: width .5s;\n  width: 100% !important; /* !important keyword used to override the inline style in ebkit browsers. */\n}\nmeter::-moz-meter-bar {\n  \n  box-shadow: 0 5px 5px -5px #999 inset;\n  \n  background-image: linear-gradient( 90deg, \n                                     #8bcf69 5%, \n                                     #e6d450 5%,\n                                     #e6d450 15%,\n                                     #f28f68 15%,\n                                     #f28f68 55%,\n                                     #cf82bf 55%,\n                                     #cf82bf 95%,\n                                     #719fd1 95%,\n                                     #719fd1 100%);\n  \n  background-size: 100% 100%;\n}\np {\n \n  margin: 0 auto ;\n  width: 550px;\n  line-height: 2.5;\n}\n.free-space {\n  \n  float: right;\n}\n.swatch {\n  \n  margin: 0; padding:0;\n  margin: 5em auto;\n  list-style-type: none;\n  width: 550px;\n  display: block;\n  position: relative;\n}\n.swatch::before {\n  \n  content: '';\n  width: 100%;\n  height: 10px;\n  outline: 0px solid #000;\n  position: absolute;\n  top: -20px;\n  left: 0;\n  border-radius: 2px;\n  \n  background-image: linear-gradient( 90deg, \n                                     #8bcf69 20%, \n                                     #e6d450 20%,\n                                     #e6d450 40%,\n                                     #f28f68 40%,\n                                     #f28f68 60%,\n                                     #cf82bf 60%,\n                                     #cf82bf 80%,\n                                     #719fd1 80%,\n                                     #719fd1 100%);\n}\n.swatch__elem {\n  \n  outline: 0px solid #c00;\n  float: left;\n  width: 110px;\n  padding-left: 5px;\n  box-sizing: border-box;\n}\n.used-space {\n  \n  display: block;\n  line-height: 2;\n  font-size: 85%;\n  color: #666;\n}\n.meter-gauge {\n\n    border: 1px solid #ccc;\n    border-radius: 3px;\n\n    background-color: whiteSmoke;\n    box-shadow: 0 5px 5px -5px #333 inset;\n\n    width: 550px;\n    height: 25px;\n    \n    display: block;\n    overflow: hidden;\n}\n.meter-gauge > span {\n \n  height: inherit;  \n  box-shadow: 0 5px 5px -5px #999 inset;\n  \n  background-color: blue;\n  background-image: linear-gradient( 90deg, \n                                     #8bcf69 5%, \n                                     #e6d450 5%,\n                                     #e6d450 15%,\n                                     #f28f68 15%,\n                                     #f28f68 55%,\n                                     #cf82bf 55%,\n                                     #cf82bf 95%,\n                                     #719fd1 95%,\n                                     #719fd1 100%);\n  \n  background-size: 100% 100%;\n\n  display: block;\n  text-indent: -9999px;\n}\nfieldset[disabled] .multiselect{pointer-events:none}.multiselect__spinner{position:absolute;right:1px;top:1px;width:48px;height:35px;background:#fff;display:block}.multiselect__spinner:after,.multiselect__spinner:before{position:absolute;content:\"\";top:50%;left:50%;margin:-8px 0 0 -8px;width:16px;height:16px;border-radius:100%;border-color:#41b883 transparent transparent;border-style:solid;border-width:2px;box-shadow:0 0 0 1px transparent}.multiselect__spinner:before{-webkit-animation:a 2.4s cubic-bezier(.41,.26,.2,.62);animation:a 2.4s cubic-bezier(.41,.26,.2,.62);-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}.multiselect__spinner:after{-webkit-animation:a 2.4s cubic-bezier(.51,.09,.21,.8);animation:a 2.4s cubic-bezier(.51,.09,.21,.8);-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite}.multiselect__loading-enter-active,.multiselect__loading-leave-active{transition:opacity .4s ease-in-out;opacity:1}.multiselect__loading-enter,.multiselect__loading-leave-active{opacity:0}.multiselect,.multiselect__input,.multiselect__single{font-family:inherit;font-size:16px;touch-action:manipulation}.multiselect{box-sizing:content-box;display:block;position:relative;width:100%;min-height:40px;text-align:left;color:#35495e}.multiselect *{box-sizing:border-box}.multiselect:focus{outline:none}.multiselect--disabled{opacity:.6}.multiselect--active{z-index:1}.multiselect--active:not(.multiselect--above) .multiselect__current,.multiselect--active:not(.multiselect--above) .multiselect__input,.multiselect--active:not(.multiselect--above) .multiselect__tags{border-bottom-left-radius:0;border-bottom-right-radius:0}.multiselect--active .multiselect__select{transform:rotate(180deg)}.multiselect--above.multiselect--active .multiselect__current,.multiselect--above.multiselect--active .multiselect__input,.multiselect--above.multiselect--active .multiselect__tags{border-top-left-radius:0;border-top-right-radius:0}.multiselect__input,.multiselect__single{position:relative;display:inline-block;min-height:20px;line-height:20px;border:none;border-radius:5px;background:#fff;padding:0 0 0 5px;width:100%;transition:border .1s ease;box-sizing:border-box;margin-bottom:8px;vertical-align:top}.multiselect__input::-webkit-input-placeholder{color:#35495e}.multiselect__input:-ms-input-placeholder{color:#35495e}.multiselect__input::-moz-placeholder{color:#35495e}.multiselect__input::-ms-input-placeholder{color:#35495e}.multiselect__input::placeholder{color:#35495e}.multiselect__tag~.multiselect__input,.multiselect__tag~.multiselect__single{width:auto}.multiselect__input:hover,.multiselect__single:hover{border-color:#cfcfcf}.multiselect__input:focus,.multiselect__single:focus{border-color:#a8a8a8;outline:none}.multiselect__single{padding-left:5px;margin-bottom:8px}.multiselect__tags-wrap{display:inline}.multiselect__tags{min-height:40px;display:block;padding:8px 40px 0 8px;border-radius:5px;border:1px solid #e8e8e8;background:#fff;font-size:14px}.multiselect__tag{position:relative;display:inline-block;padding:4px 26px 4px 10px;border-radius:5px;margin-right:10px;color:#fff;line-height:1;background:#41b883;margin-bottom:5px;white-space:nowrap;overflow:hidden;max-width:100%;text-overflow:ellipsis}.multiselect__tag-icon{cursor:pointer;margin-left:7px;position:absolute;right:0;top:0;bottom:0;font-weight:700;font-style:normal;width:22px;text-align:center;line-height:22px;transition:all .2s ease;border-radius:5px}.multiselect__tag-icon:after{content:\"\\D7\";color:#266d4d;font-size:14px}.multiselect__tag-icon:focus,.multiselect__tag-icon:hover{background:#369a6e}.multiselect__tag-icon:focus:after,.multiselect__tag-icon:hover:after{color:#fff}.multiselect__current{min-height:40px;overflow:hidden;padding:8px 12px 0;padding-right:30px;white-space:nowrap;border-radius:5px;border:1px solid #e8e8e8}.multiselect__current,.multiselect__select{line-height:16px;box-sizing:border-box;display:block;margin:0;text-decoration:none;cursor:pointer}.multiselect__select{position:absolute;width:40px;height:38px;right:1px;top:1px;padding:4px 8px;text-align:center;transition:transform .2s ease}.multiselect__select:before{position:relative;right:0;top:65%;color:#999;margin-top:4px;border-style:solid;border-width:5px 5px 0;border-color:#999 transparent transparent;content:\"\"}.multiselect__placeholder{color:#adadad;display:inline-block;margin-bottom:10px;padding-top:2px}.multiselect--active .multiselect__placeholder{display:none}.multiselect__content-wrapper{position:absolute;display:block;background:#fff;width:100%;max-height:240px;overflow:auto;border:1px solid #e8e8e8;border-top:none;border-bottom-left-radius:5px;border-bottom-right-radius:5px;z-index:1;-webkit-overflow-scrolling:touch}.multiselect__content{list-style:none;display:inline-block;padding:0;margin:0;min-width:100%;vertical-align:top}.multiselect--above .multiselect__content-wrapper{bottom:100%;border-bottom-left-radius:0;border-bottom-right-radius:0;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom:none;border-top:1px solid #e8e8e8}.multiselect__content::webkit-scrollbar{display:none}.multiselect__element{display:block}.multiselect__option{display:block;padding:12px;min-height:40px;line-height:16px;text-decoration:none;text-transform:none;vertical-align:middle;position:relative;cursor:pointer;white-space:nowrap}.multiselect__option:after{top:0;right:0;position:absolute;line-height:40px;padding-right:12px;padding-left:20px;font-size:13px}.multiselect__option--highlight{background:#41b883;outline:none;color:#fff}.multiselect__option--highlight:after{content:attr(data-select);background:#41b883;color:#fff}.multiselect__option--selected{background:#f3f3f3;color:#35495e;font-weight:700}.multiselect__option--selected:after{content:attr(data-selected);color:silver}.multiselect__option--selected.multiselect__option--highlight{background:#ff6a6a;color:#fff}.multiselect__option--selected.multiselect__option--highlight:after{background:#ff6a6a;content:attr(data-deselect);color:#fff}.multiselect--disabled{background:#ededed;pointer-events:none}.multiselect--disabled .multiselect__current,.multiselect--disabled .multiselect__select,.multiselect__option--disabled{background:#ededed;color:#a6a6a6}.multiselect__option--disabled{cursor:text;pointer-events:none}.multiselect__option--group{background:#ededed;color:#35495e}.multiselect__option--group.multiselect__option--highlight{background:#35495e;color:#fff}.multiselect__option--group.multiselect__option--highlight:after{background:#35495e}.multiselect__option--disabled.multiselect__option--highlight{background:#dedede}.multiselect__option--group-selected.multiselect__option--highlight{background:#ff6a6a;color:#fff}.multiselect__option--group-selected.multiselect__option--highlight:after{background:#ff6a6a;content:attr(data-deselect);color:#fff}.multiselect-enter-active,.multiselect-leave-active{transition:all .15s ease}.multiselect-enter,.multiselect-leave-active{opacity:0}.multiselect__strong{margin-bottom:8px;line-height:20px;display:inline-block;vertical-align:top}[dir=rtl] .multiselect{text-align:right}[dir=rtl] .multiselect__select{right:auto;left:1px}[dir=rtl] .multiselect__tags{padding:8px 8px 0 40px}[dir=rtl] .multiselect__content{text-align:right}[dir=rtl] .multiselect__option:after{right:auto;left:0}[dir=rtl] .multiselect__clear{right:auto;left:12px}[dir=rtl] .multiselect__spinner{right:auto;left:1px}@-webkit-keyframes a{0%{transform:rotate(0)}to{transform:rotate(2turn)}}@keyframes a{0%{transform:rotate(0)}to{transform:rotate(2turn)}}\n", ""]);
 
 // exports
 
@@ -56057,208 +56089,254 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.recipe.name,
-            expression: "recipe.name"
-          }
-        ],
-        staticClass: "form-control",
-        attrs: { type: "text", name: "name", id: "name", required: "" },
-        domProps: { value: _vm.recipe.name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.recipe, "name", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-        _vm._v("Description")
+  return _c(
+    "div",
+    [
+      _c("pre", { staticClass: "language-json" }, [
+        _vm._v("total flavor % =  "),
+        _c("code", [_vm._v(_vm._s(_vm.flavorTotal) + "%")])
       ]),
       _vm._v(" "),
-      _c("textarea", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.recipe.description,
-            expression: "recipe.description"
-          }
-        ],
-        staticClass: "form-control",
-        attrs: {
-          id: "description",
-          name: "description",
-          rows: "3",
-          required: ""
-        },
-        domProps: { value: _vm.recipe.description },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.recipe, "description", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "form-group" },
-      [
-        _c("label", { attrs: { for: "flavors" } }, [_vm._v("Flavors")]),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
         _vm._v(" "),
-        _c("multiselect", {
-          attrs: {
-            options: _vm.options,
-            multiple: true,
-            "close-on-select": false,
-            "clear-on-select": false,
-            "preserve-search": true,
-            placeholder: "Select flavors",
-            label: "name",
-            "track-by": "name",
-            "preselect-first": true
-          },
-          scopedSlots: _vm._u([
+        _c("input", {
+          directives: [
             {
-              key: "selection",
-              fn: function(ref) {
-                var values = ref.values
-                var search = ref.search
-                var isOpen = ref.isOpen
-                return [
-                  values.length && !isOpen
-                    ? _c("span", { staticClass: "multiselect__single" }, [
-                        _vm._v(_vm._s(values.length) + " options selected")
-                      ])
-                    : _vm._e()
-                ]
-              }
+              name: "model",
+              rawName: "v-model",
+              value: _vm.recipe.name,
+              expression: "recipe.name"
             }
-          ]),
-          model: {
-            value: _vm.value,
-            callback: function($$v) {
-              _vm.value = $$v
-            },
-            expression: "value"
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", name: "name", id: "name", required: "" },
+          domProps: { value: _vm.recipe.name },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.recipe, "name", $event.target.value)
+            }
           }
         })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "form-group mt-4" },
-      _vm._l(_vm.value, function(flavor, index) {
-        return _c("div", { key: index, attrs: { id: flavor.id } }, [
-          _c(
-            "div",
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
+          _vm._v("Description")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
             {
-              staticClass: "form-row",
-              staticStyle: { "border-bottom": "1px solid #efefef" }
+              name: "model",
+              rawName: "v-model",
+              value: _vm.recipe.description,
+              expression: "recipe.description"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: {
+            id: "description",
+            name: "description",
+            rows: "3",
+            required: ""
+          },
+          domProps: { value: _vm.recipe.description },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.recipe, "description", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("label", { attrs: { for: "flavors" } }, [_vm._v("Flavors")]),
+          _vm._v(" "),
+          _c("multiselect", {
+            attrs: {
+              options: _vm.options,
+              multiple: true,
+              "close-on-select": false,
+              "clear-on-select": false,
+              "preserve-search": true,
+              placeholder: "Select flavors",
+              label: "name",
+              "track-by": "name",
+              "preselect-first": true
             },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-md-12 mt-2 mb-4 d-flex justify-content-between align-center"
-                },
-                [
-                  _c("div", { staticClass: "ml-0 mr-auto d-flex flex-wrap" }, [
+            scopedSlots: _vm._u([
+              {
+                key: "selection",
+                fn: function(ref) {
+                  var values = ref.values
+                  var search = ref.search
+                  var isOpen = ref.isOpen
+                  return [
+                    values.length && !isOpen
+                      ? _c("span", { staticClass: "multiselect__single" }, [
+                          _vm._v(_vm._s(values.length) + " options selected")
+                        ])
+                      : _vm._e()
+                  ]
+                }
+              }
+            ]),
+            model: {
+              value: _vm.value,
+              callback: function($$v) {
+                _vm.value = $$v
+              },
+              expression: "value"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group mt-4" },
+        _vm._l(_vm.value, function(flavor, index) {
+          return _c("div", { key: index, attrs: { id: flavor.id } }, [
+            _c(
+              "div",
+              {
+                staticClass: "form-row",
+                staticStyle: { "border-bottom": "1px solid #efefef" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-md-12 mt-2 mb-4 d-flex justify-content-between align-center"
+                  },
+                  [
                     _c(
-                      "span",
-                      {
-                        staticClass: "label label-default mb-2",
-                        staticStyle: { "font-size": "0.9rem" },
-                        attrs: { for: "flavor" }
-                      },
-                      [_vm._v(_vm._s(flavor.name))]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: flavor.pivot.flavor_perc,
-                          expression: "flavor.pivot.flavor_perc"
-                        }
-                      ],
-                      staticClass: "form-control flavor",
-                      attrs: {
-                        name: "flavor",
-                        type: "number",
-                        id: "flavor-" + flavor.id,
-                        placeholder: "Enter flavor %",
-                        required: ""
-                      },
-                      domProps: { value: flavor.pivot.flavor_perc },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            flavor.pivot,
-                            "flavor_perc",
-                            $event.target.value
+                      "div",
+                      { staticClass: "ml-0 mr-auto d-flex flex-wrap" },
+                      [
+                        _c("div", { staticClass: "d-flex" }, [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "label label-default mb-2",
+                              staticStyle: { "font-size": "0.9rem" },
+                              attrs: { for: "flavor" }
+                            },
+                            [_vm._v(_vm._s(flavor.name))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "button is-medium is-primary ml-2 mr-0",
+                              staticStyle: {
+                                cursor: "pointer",
+                                "font-size": "12px"
+                              },
+                              on: {
+                                click: function($event) {
+                                  return _vm.removeTag(index)
+                                }
+                              }
+                            },
+                            [_vm._v("X")]
                           )
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "button is-medium is-primary ml-auto mr-0",
-                      staticStyle: { cursor: "pointer" },
-                      on: {
-                        click: function($event) {
-                          return _vm.removeTag(index)
-                        }
-                      }
-                    },
-                    [_vm._v("X")]
-                  )
-                ]
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: flavor.pivot.flavor_perc,
+                              expression: "flavor.pivot.flavor_perc"
+                            }
+                          ],
+                          staticClass: "form-control flavor",
+                          attrs: {
+                            name: "flavor",
+                            type: "number",
+                            id: "flavor-" + flavor.id,
+                            placeholder: "Enter flavor %",
+                            required: ""
+                          },
+                          domProps: { value: flavor.pivot.flavor_perc },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                flavor.pivot,
+                                "flavor_perc",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary mt-2 mb-4",
+          attrs: { type: "submit" },
+          on: { click: _vm.updateRecipe }
+        },
+        [_vm._v("Submit")]
+      ),
+      _vm._v(" "),
+      _c(
+        "meter",
+        { attrs: { value: "55.93", min: "0", max: "120.47", title: "GB" } },
+        [
+          _c("div", { staticClass: "meter-gauge" }, [
+            _c("span", { style: { width: _vm.flavorTotal + "%" } }, [
+              _vm._v(
+                "Flavor Percentage - " +
+                  _vm._s(_vm.flavorTotal) +
+                  " out of 100%"
               )
-            ]
-          )
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.value, function(flavor, index) {
+        return _c("ul", { key: index, staticClass: "swatch" }, [
+          _c("li", { staticClass: "swatch__elem" }, [
+            _vm._v(_vm._s(flavor.name)),
+            _c("span", { staticClass: "used-space" }, [
+              _vm._v(_vm._s(flavor.pivot.flavor_perc) + "%")
+            ])
+          ])
         ])
-      }),
-      0
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-primary mt-2",
-        attrs: { type: "submit" },
-        on: { click: _vm.updateRecipe }
-      },
-      [_vm._v("Submit")]
-    )
-  ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
