@@ -29,10 +29,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   <h1>    
+                   <h1 class="mb-1">    
                     <img style="width: 90px;" src="{{ asset('img/logo-bw.svg') }}" alt="{{ config('app.name') }}" />
                    </h1>
                 </a>
@@ -43,6 +43,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item">
+                                <a class="nav-link" href="/recipes">Recipes</a>
+                            </li>
 
                     </ul>
 

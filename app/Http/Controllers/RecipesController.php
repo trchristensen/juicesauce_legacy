@@ -32,17 +32,25 @@ class RecipesController extends Controller
      */
     public function index() {
 
-        $recipeList = Recipe::latest()->paginate(20);
+        // $recipeList = Recipe::latest()
+        //     ->where('flavors', 1)
+        //     ->paginate(20);
 
-        return view('recipes.index', compact('recipeList'));
+        
+        // $recipes = Recipe::withPivot('flavors')->get();
+
+
+        // $recipes = Recipe::whereHas('flavors', function ($query) {
+            // $query->where('flavor_id', 1);
+        // })->get();
+
+        // return $recipes;
+
+        return view('recipes.index');
+
+        
     }
 
-   public function results() {
-
-       $list =  Recipe::latest()->paginate(20);
-
-       return compact('list');
-   }
 
     /**
      * Store a newly created resource in storage.
