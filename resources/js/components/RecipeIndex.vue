@@ -6,14 +6,25 @@
         <input class="form-control mb-2" type="number" v-model="flavorID">
     </div>  -->
 
-      <pre class="language-json"><code>{{ results  }}</code></pre>
+      <!-- <pre class="language-json"><code>{{ users  }}</code></pre> -->
 
-    <div class="form-group d-flex justify-content-between">
+      <div class="form-group">
+      <select class="form-control" v-model=selectUser>
+        <option v-for="(value, key) in users" v-bind:key="value"  :id="key">{{value}}</option>
+      </select>
+      </div>
+      {{selectUser}}
+    <div class="form-group">
+
+      <!-- <multiselect v-model="selectedUsers" :options="users" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="true" placeholder="Select Users" label="name" track-by="name" :preselect-first="true">
+            <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="selectedUsers.length &amp;&amp; !isOpen">{{ selectedUsers.length }} options selected</span></template>
+        </multiselect> -->
+      
         <multiselect v-model="value" :options="options" :multiple="true" :close-on-select="false" :clear-on-select="false" :preserve-search="true" placeholder="Select flavors" label="name" track-by="name" :preselect-first="true">
             <template slot="selection" slot-scope="{ values, search, isOpen }"><span class="multiselect__single" v-if="values.length &amp;&amp; !isOpen">{{ values.length }} options selected</span></template>
         </multiselect>
-        <button class="btn btn-primary" @click="sendTweet">Filter</button>
         
+      <button class="btn btn-primary" @click="sendTweet">Filter</button>
     </div>
                 <div v-for="(item, index) in results.data" v-bind:key="index" class="list-item mb-2 pl-2 pr-2 pt-2 pb-4" style="border-bottom:1px solid #efefef;" :id="index">
                     
@@ -52,6 +63,8 @@ export default {
         flavorID: '',
         value: [],
         options: [],
+        users: [],
+        selectedUser: '',
     }
   },
   
@@ -120,6 +133,12 @@ export default {
       .then(function (response) {
         console.log(response.data);
         vm.options = response.data
+      });
+
+      axios.get('/api/users')
+      .then(function (response) {
+        console.log(response.data);
+        vm.users = response.data
       });
    
 

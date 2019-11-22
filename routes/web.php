@@ -24,65 +24,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Recipes
 Route::get('/recipes', 'RecipesController@index');
-
-Route::get('/api/recipes', function(){
-    
-    return App\Recipe::with('flavors')->latest()->paginate(20);
-
-});
-
-
-
-Route::get('/api/recipes/flavor/{flavorID}', function($flavorID){
-    
-
-    return App\Recipe::whereHas('flavors', function ($query) use ($flavorID) {
-
-        $query->where('flavor_id', $flavorID);
-
-    })->paginate(20);
-});
-
-
-Route::get('/filter', function(Request $request){
-
-    $query = request()->query();
-    
-    // if owner param
-    if(request()->has('owner')){
-        $ownerID = request()->query('owner');
-    } else {
-        $ownerID = null;
-    }
-
-    // if flavor params
-    if(request()->has('flavor')){
-         $flavorId = request()->query('flavor');
-    } else {
-        $flavorId = null;
-    }
-     
-
-    return App\Recipe::with('flavors')
-    ->where('owner_id', $ownerID)
-    ->whereHas('flavors', function ($query) use ($flavorId) {
-            $query->whereIn('flavor_id', $flavorId);
-        })
-    ->paginate(20);
-    
-});
-
-
-Route::get('/recipeflavors', function(){
-    return App\Recipe::with('flavors')->get();
-});
-
-
+Route::get('/filter', "RecipesController@filter");
 
 // Flavors
 Route::get('/flavors', 'FlavorsController@index');
 Route::get('/flavors/{flavor}', 'FlavorsController@show');
 
+
+
+// Need to do something with these.
+Route::get('/api/recipes', function(){
+    return App\Recipe::with('flavors')->latest()->paginate(20);
+});
 
 Route::get('/api/flavors', function(){
     $flavors = App\Flavor::all();
@@ -92,5 +45,8 @@ Route::get('/api/flavors', function(){
     return $flavors;
 });
 
-
+Route::get('/api/users', function(){
+    return App\User::all()->pluck('name', 'id');
+  
+});
 

@@ -129,6 +129,35 @@ class RecipesController extends Controller
 
     }
 
+
+    public function filter(Request $request){
+
+        $query = request()->query();
+        
+        $ownerID = request()->query('owner');
+        $flavorId = request()->query('flavor');
+        
+
+        return Recipe::with('flavors')
+            // if owner param:
+            ->when($ownerID, function ($query, $ownerID) {
+                return $query->where('owner_id', $ownerID);
+            }, function ($query) {
+                        return null;
+            })
+            // if flavor params:
+            ->when($flavorId, function ($query, $flavorId) {
+
+                return $query->whereHas('flavors', function ($query) use ($flavorId) {
+                        $query->whereIn('flavor_id', $flavorId);
+                });
+            }, function ($query) {
+                        return null;
+            })
+        ->paginate(20);
+    
+    }
+
     /**
      * Remove the specified resource from storage.
      *

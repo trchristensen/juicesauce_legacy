@@ -2007,6 +2007,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2018,7 +2029,9 @@ __webpack_require__.r(__webpack_exports__);
       results: [],
       flavorID: '',
       value: [],
-      options: []
+      options: [],
+      users: [],
+      selectedUser: ''
     };
   },
   methods: {
@@ -2084,6 +2097,10 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/flavors').then(function (response) {
       console.log(response.data);
       vm.options = response.data;
+    });
+    axios.get('/api/users').then(function (response) {
+      console.log(response.data);
+      vm.users = response.data;
     });
   }
 });
@@ -55363,13 +55380,47 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("pre", { staticClass: "language-json" }, [
-        _c("code", [_vm._v(_vm._s(_vm.results))])
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectUser,
+                expression: "selectUser"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectUser = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          _vm._l(_vm.users, function(value, key) {
+            return _c("option", { key: value, attrs: { id: key } }, [
+              _vm._v(_vm._s(value))
+            ])
+          }),
+          0
+        )
       ]),
-      _vm._v(" "),
+      _vm._v("\n      " + _vm._s(_vm.selectUser) + "\n    "),
       _c(
         "div",
-        { staticClass: "form-group d-flex justify-content-between" },
+        { staticClass: "form-group" },
         [
           _c("multiselect", {
             attrs: {
